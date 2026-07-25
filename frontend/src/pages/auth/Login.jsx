@@ -56,7 +56,7 @@ const Login = () => {
   ];
 
   return (
-    <div className="min-h-[85vh] flex">
+    <div className="min-h-screen flex">
 
       {/* Left Side — Blue Panel */}
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 flex-col items-center justify-center p-12 text-white">
