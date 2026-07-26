@@ -83,7 +83,7 @@ const Home = () => {
       </div>
 
       {/* Features */}
-      <div className="py-16 px-6 bg-gray-50">
+      <div className="py-16 px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-3">Why Choose CareEase?</h2>
           <p className="text-center text-gray-500 mb-12 text-sm">Apni health ko priority do — ghar baithe doctor se milo</p>
@@ -107,7 +107,7 @@ const Home = () => {
       </div>
 
       {/* How it Works */}
-      <div className="py-16 px-6 bg-white">
+      <div className="py-16 px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-3">Kaise Kaam Karta Hai?</h2>
           <p className="text-center text-gray-500 mb-12 text-sm">3 simple steps mein shuru karo</p>
