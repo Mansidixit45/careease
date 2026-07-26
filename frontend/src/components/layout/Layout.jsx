@@ -1,15 +1,11 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { useLocation } from "react-router-dom";
 
 const Layout = ({ children }) => {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 overflow-x-hidden">
       <Navbar />
-      <main className="flex-1 w-full overflow-x-hidden">
+      <main className="flex-1 w-full">
         {children}
       </main>
       <Footer />

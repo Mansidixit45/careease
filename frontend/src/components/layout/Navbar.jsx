@@ -22,17 +22,17 @@ const Navbar = () => {
       { to: "/dashboard",    label: "Dashboard",    icon: <FiHome size={15} /> },
       { to: "/doctors",      label: "Doctors",      icon: <FiUser size={15} /> },
       { to: "/appointments", label: "Appointments", icon: <FiCalendar size={15} /> },
-      { to: "/chatbot", label: "Sehat Saathi", icon: <FiMessageCircle size={15} /> },
+      { to: "/chatbot",      label: "Sehat Saathi", icon: <FiMessageCircle size={15} /> },
     ];
     if (user.role === "doctor") return [
       { to: "/doctor/dashboard", label: "Dashboard",    icon: <FiHome size={15} /> },
       { to: "/appointments",     label: "Appointments", icon: <FiCalendar size={15} /> },
     ];
     if (user.role === "admin") return [
-      { to: "/admin",             label: "Dashboard",    icon: <FiHome size={15} /> },
-      { to: "/admin/doctors",     label: "Doctors",      icon: <FiUser size={15} /> },
-      { to: "/admin/appointments",label: "Appointments", icon: <FiCalendar size={15} /> },
-      { to: "/admin/users",       label: "Users",        icon: <FiUsers size={15} /> },
+      { to: "/admin",              label: "Dashboard",    icon: <FiHome size={15} /> },
+      { to: "/admin/doctors",      label: "Doctors",      icon: <FiUser size={15} /> },
+      { to: "/admin/appointments", label: "Appointments", icon: <FiCalendar size={15} /> },
+      { to: "/admin/users",        label: "Users",        icon: <FiUsers size={15} /> },
     ];
     return [];
   };
@@ -40,7 +40,6 @@ const Navbar = () => {
   const links = getLinks();
   const isActive = (path) => location.pathname === path;
 
-  // Role-based accent color
   const roleColor = {
     patient: "from-blue-600 to-blue-700",
     doctor:  "from-teal-600 to-teal-700",
@@ -50,12 +49,12 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+      <div className="w-full px-4 sm:px-6">
         <div className="flex items-center justify-between h-14">
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className={`w-8 h-8 bg-gradient-to-br ${accentGrad} rounded-xl flex items-center justify-center shadow-sm`}>
+            <div className={`w-8 h-8 bg-gradient-to-br ${accentGrad} rounded-lg flex items-center justify-center shadow-sm`}>
               <span className="text-white font-black text-sm">C</span>
             </div>
             <span className="text-lg font-black text-gray-800 tracking-tight">
@@ -87,7 +86,6 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             {user ? (
               <>
-                {/* Bell */}
                 <Link
                   to="/notifications"
                   className="relative p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-colors"
@@ -100,7 +98,6 @@ const Navbar = () => {
                   )}
                 </Link>
 
-                {/* User Chip */}
                 <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-gray-50 border border-gray-100 rounded-xl">
                   <div className={`w-6 h-6 bg-gradient-to-br ${accentGrad} rounded-full flex items-center justify-center shrink-0`}>
                     <span className="text-white text-[10px] font-bold">
@@ -113,7 +110,6 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                {/* Logout */}
                 <button
                   onClick={handleLogout}
                   className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-red-500 hover:bg-red-50 border border-transparent hover:border-red-100 rounded-xl transition-all"
@@ -122,7 +118,6 @@ const Navbar = () => {
                   Logout
                 </button>
 
-                {/* Mobile hamburger */}
                 <button
                   onClick={() => setMenuOpen(!menuOpen)}
                   className="md:hidden p-2 text-gray-500 hover:bg-gray-50 rounded-xl transition-colors"
