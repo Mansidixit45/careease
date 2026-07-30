@@ -26,7 +26,7 @@ import ProfilePage from "./pages/profile/ProfilePage";
 
 const Section = ({ className, children }) => (
   <div className={`w-full ${className}`}>
-    <div className="max-w-5xl mx-auto px-6 sm:px-10">
+    <div className="max-w-5xl mx-auto px-10 sm:px-16">
       {children}
     </div>
   </div>
