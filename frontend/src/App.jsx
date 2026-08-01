@@ -24,14 +24,6 @@ import AudioCall from "./pages/consultation/AudioCall";
 import ChatConsultation from "./pages/consultation/ChatConsultation";
 import ProfilePage from "./pages/profile/ProfilePage";
 
-const Section = ({ className, children }) => (
-  <div className={`w-full ${className}`}>
-    <div className="max-w-5xl mx-auto px-10 sm:px-16">
-      {children}
-    </div>
-  </div>
-);
-
 // ── Home Page ──────────────────────────────────────────────────────────
 const Home = () => {
   const { user } = useAuth();
@@ -41,102 +33,98 @@ const Home = () => {
   if (user?.role === "admin") return <Navigate to="/admin" replace />;
 
   return (
-    <div className="min-h-screen w-full">
+    <div style={{ width: "100%", overflowX: "hidden" }}>
 
       {/* Hero Section */}
-      <div className="w-full bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white py-20">
-        <div className="max-w-5xl mx-auto px-6 sm:px-10 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Welcome to <span className="text-blue-200">CareEase</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-blue-100 mb-3">
-            🏥 Online Healthcare Consultancy Platform
-          </p>
-          <p className="text-blue-200 mb-10 text-sm">
-            Powered by <strong>Sehat Saathi</strong> — Your AI Health Companion
-          </p>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <a href="/register" className="px-8 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg text-sm">
-              🚀 Get Started Free
-            </a>
-            <a href="/login" className="px-8 py-3 border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-blue-600 transition-colors text-sm">
-              Login
-            </a>
-          </div>
+      <div style={{ background: "linear-gradient(135deg, #1d4ed8, #1e40af)", padding: "80px 40px", textAlign: "center", color: "white" }}>
+        <h1 style={{ fontSize: "clamp(28px, 5vw, 48px)", fontWeight: "bold", marginBottom: "16px" }}>
+          Welcome to <span style={{ color: "#93c5fd" }}>CareEase</span>
+        </h1>
+        <p style={{ fontSize: "18px", color: "#bfdbfe", marginBottom: "12px" }}>
+          🏥 Online Healthcare Consultancy Platform
+        </p>
+        <p style={{ fontSize: "14px", color: "#bfdbfe", marginBottom: "40px" }}>
+          Powered by <strong>Sehat Saathi</strong> — Your AI Health Companion
+        </p>
+        <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+          <a href="/register" style={{ padding: "12px 32px", background: "white", color: "#1d4ed8", fontWeight: "bold", borderRadius: "12px", textDecoration: "none", fontSize: "14px" }}>
+            🚀 Get Started Free
+          </a>
+          <a href="/login" style={{ padding: "12px 32px", border: "2px solid white", color: "white", fontWeight: "bold", borderRadius: "12px", textDecoration: "none", fontSize: "14px" }}>
+            Login
+          </a>
         </div>
       </div>
 
       {/* Stats */}
-      <Section className="bg-white py-10 border-b border-gray-100">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      <div style={{ background: "white", padding: "40px", borderBottom: "1px solid #f1f5f9" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
           {[
-            { number: "50+",   label: "Doctors",      icon: "👨‍⚕️" },
-            { number: "1000+", label: "Patients",     icon: "🧑" },
+            { number: "50+", label: "Doctors", icon: "👨‍⚕️" },
+            { number: "1000+", label: "Patients", icon: "🧑" },
             { number: "5000+", label: "Appointments", icon: "📅" },
-            { number: "24/7",  label: "AI Support",   icon: "🤖" },
+            { number: "24/7", label: "AI Support", icon: "🤖" },
           ].map((stat) => (
             <div key={stat.label}>
-              <p className="text-3xl mb-1">{stat.icon}</p>
-              <p className="text-2xl font-bold text-blue-600">{stat.number}</p>
-              <p className="text-gray-500 text-sm">{stat.label}</p>
+              <p style={{ fontSize: "28px", marginBottom: "4px" }}>{stat.icon}</p>
+              <p style={{ fontSize: "24px", fontWeight: "bold", color: "#2563eb" }}>{stat.number}</p>
+              <p style={{ fontSize: "14px", color: "#6b7280" }}>{stat.label}</p>
             </div>
           ))}
         </div>
-      </Section>
+      </div>
 
       {/* Features */}
-      <Section className="py-16 bg-gray-50">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-3">Why Choose CareEase?</h2>
-        <p className="text-center text-gray-500 mb-12 text-sm">Apni health ko priority do — ghar baithe doctor se milo</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div style={{ background: "#f9fafb", padding: "64px 40px" }}>
+        <h2 style={{ fontSize: "30px", fontWeight: "bold", textAlign: "center", marginBottom: "12px", color: "#1f2937" }}>Why Choose CareEase?</h2>
+        <p style={{ textAlign: "center", color: "#6b7280", marginBottom: "48px", fontSize: "14px" }}>Apni health ko priority do — ghar baithe doctor se milo</p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", maxWidth: "1000px", margin: "0 auto" }}>
           {[
-            { icon: "👨‍⚕️", title: "Expert Doctors",       desc: "Verified specialists — Cardiologist, Dermatologist aur bahut kuch", color: "bg-blue-50 border-blue-100" },
-            { icon: "🤖",   title: "Sehat Saathi AI",     desc: "24/7 AI assistant — symptoms check karo, instant guidance pao",   color: "bg-purple-50 border-purple-100" },
-            { icon: "📅",   title: "Easy Booking",        desc: "2 minute mein appointment book karo — no waiting, no hassle",     color: "bg-green-50 border-green-100" },
-            { icon: "💬",   title: "Online Consultation", desc: "Ghar baithe doctor se milo — video, audio ya chat",              color: "bg-orange-50 border-orange-100" },
-            { icon: "🔔",   title: "Smart Notifications", desc: "Appointment reminders aur updates — kabhi miss mat karo",         color: "bg-yellow-50 border-yellow-100" },
-            { icon: "🔒",   title: "Secure & Private",    desc: "Aapki health data bilkul safe — end-to-end secure",              color: "bg-red-50 border-red-100" },
+            { icon: "👨‍⚕️", title: "Expert Doctors", desc: "Verified specialists — Cardiologist, Dermatologist aur bahut kuch", bg: "#eff6ff", border: "#bfdbfe" },
+            { icon: "🤖", title: "Sehat Saathi AI", desc: "24/7 AI assistant — symptoms check karo, instant guidance pao", bg: "#faf5ff", border: "#e9d5ff" },
+            { icon: "📅", title: "Easy Booking", desc: "2 minute mein appointment book karo — no waiting, no hassle", bg: "#f0fdf4", border: "#bbf7d0" },
+            { icon: "💬", title: "Online Consultation", desc: "Ghar baithe doctor se milo — video, audio ya chat", bg: "#fff7ed", border: "#fed7aa" },
+            { icon: "🔔", title: "Smart Notifications", desc: "Appointment reminders aur updates — kabhi miss mat karo", bg: "#fefce8", border: "#fde68a" },
+            { icon: "🔒", title: "Secure & Private", desc: "Aapki health data bilkul safe — end-to-end secure", bg: "#fef2f2", border: "#fecaca" },
           ].map((feature) => (
-            <div key={feature.title} className={`${feature.color} border rounded-xl p-5 hover:shadow-md transition-shadow`}>
-              <p className="text-3xl mb-3">{feature.icon}</p>
-              <h3 className="font-bold text-gray-800 mb-2">{feature.title}</h3>
-              <p className="text-gray-500 text-xs leading-relaxed">{feature.desc}</p>
+            <div key={feature.title} style={{ background: feature.bg, border: `1px solid ${feature.border}`, borderRadius: "12px", padding: "20px" }}>
+              <p style={{ fontSize: "28px", marginBottom: "12px" }}>{feature.icon}</p>
+              <h3 style={{ fontWeight: "bold", color: "#1f2937", marginBottom: "8px" }}>{feature.title}</h3>
+              <p style={{ fontSize: "13px", color: "#6b7280", lineHeight: "1.6" }}>{feature.desc}</p>
             </div>
           ))}
         </div>
-      </Section>
+      </div>
 
       {/* How it Works */}
-      <Section className="py-16 bg-white">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-3">Kaise Kaam Karta Hai?</h2>
-        <p className="text-center text-gray-500 mb-12 text-sm">3 simple steps mein shuru karo</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div style={{ background: "white", padding: "64px 40px" }}>
+        <h2 style={{ fontSize: "30px", fontWeight: "bold", textAlign: "center", marginBottom: "12px", color: "#1f2937" }}>Kaise Kaam Karta Hai?</h2>
+        <p style={{ textAlign: "center", color: "#6b7280", marginBottom: "48px", fontSize: "14px" }}>3 simple steps mein shuru karo</p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "32px", maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
           {[
-            { step: "01", icon: "📝", title: "Register Karo",  desc: "Patient ya Doctor ke roop mein register karo — bilkul free" },
+            { step: "01", icon: "📝", title: "Register Karo", desc: "Patient ya Doctor ke roop mein register karo — bilkul free" },
             { step: "02", icon: "🔍", title: "Doctor Dhundho", desc: "Specialization ke hisab se best doctor choose karo" },
-            { step: "03", icon: "✅", title: "Consult Karo",   desc: "Appointment book karo aur ghar baithe consultation lo" },
+            { step: "03", icon: "✅", title: "Consult Karo", desc: "Appointment book karo aur ghar baithe consultation lo" },
           ].map((step) => (
-            <div key={step.step} className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">{step.icon}</span>
+            <div key={step.step}>
+              <div style={{ width: "64px", height: "64px", background: "#2563eb", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px", fontSize: "24px" }}>
+                {step.icon}
               </div>
-              <span className="text-xs font-bold text-blue-400">STEP {step.step}</span>
-              <h3 className="font-bold text-gray-800 mt-1 mb-2">{step.title}</h3>
-              <p className="text-gray-500 text-xs leading-relaxed">{step.desc}</p>
+              <p style={{ fontSize: "12px", fontWeight: "bold", color: "#93c5fd", marginBottom: "4px" }}>STEP {step.step}</p>
+              <h3 style={{ fontWeight: "bold", color: "#1f2937", marginBottom: "8px" }}>{step.title}</h3>
+              <p style={{ fontSize: "13px", color: "#6b7280", lineHeight: "1.6" }}>{step.desc}</p>
             </div>
           ))}
         </div>
-      </Section>
+      </div>
 
       {/* CTA */}
-      <div className="w-full bg-blue-600 py-16 text-center text-white">
-        <div className="max-w-5xl mx-auto px-6 sm:px-10">
-          <h2 className="text-3xl font-bold mb-3">Abhi Shuru Karo!</h2>
-          <p className="text-blue-100 mb-8 text-sm">Hazaro patients CareEase pe trust karte hain — aap bhi join karo</p>
-          <a href="/register" className="inline-block px-10 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg">
-            🚀 Free Account Banao
-          </a>
-        </div>
+      <div style={{ background: "#2563eb", padding: "64px 40px", textAlign: "center", color: "white" }}>
+        <h2 style={{ fontSize: "30px", fontWeight: "bold", marginBottom: "12px" }}>Abhi Shuru Karo!</h2>
+        <p style={{ color: "#bfdbfe", marginBottom: "32px", fontSize: "14px" }}>Hazaro patients CareEase pe trust karte hain — aap bhi join karo</p>
+        <a href="/register" style={{ padding: "12px 40px", background: "white", color: "#2563eb", fontWeight: "bold", borderRadius: "12px", textDecoration: "none", display: "inline-block" }}>
+          🚀 Free Account Banao
+        </a>
       </div>
 
     </div>
