@@ -79,7 +79,7 @@ const PatientDashboard = () => {
   }
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto px-4 py-6">
+    <div style={{maxWidth:"900px", margin:"0 auto", padding:"24px 40px"}}>
 
       {/* Welcome Banner */}
       <div className="bg-blue-600 rounded-2xl p-6 text-white">
